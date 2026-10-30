@@ -1,0 +1,16 @@
+# Normalize line endings so the repo behaves the same on every platform.
+# Python and Markdown are LF; Windows batch files must stay CRLF.
+* text=auto eol=lf
+
+*.py    text eol=lf
+*.md    text eol=lf
+*.json  text eol=lf
+*.js    text eol=lf
+*.cmd   text eol=crlf
+*.bat   text eol=crlf
+
+# Binary — never touch these
+*.png   binary
+*.jpg   binary
+*.zip   binary
+*.gz    binary

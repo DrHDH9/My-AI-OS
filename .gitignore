@@ -1,0 +1,33 @@
+# ---- Derived index (rebuild with `python mem.py rebuild`) ----
+.meta/
+
+# ---- Personal data ----
+# Keep the folder structure in git, never the contents.
+notes/*
+!notes/README.md
+cold/*
+!cold/README.md
+sum/*
+!sum/README.md
+.raw/*
+!.raw/README.md
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ---- Test artifacts ----
+tests/_sandbox_*/
+tests/*-report.txt
+tests/last-report.txt
+
+# ---- Write-in-progress temp files (`add` uses <file>.<pid>.writing) ----
+*.writing
+
+# ---- OS noise ----
+.DS_Store
+Thumbs.db
+desktop.ini

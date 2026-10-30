@@ -1,0 +1,52 @@
+{
+  "_说明": "容量档位与安全规则。改了立即生效，不需要重启。0 表示不限制。",
+  "version": 2,
+  "updated": "2026-10-28",
+
+  "capacity": {
+    "_档位说明": "1=每天50条以内  2=50~500  3=500~5000  4=5000以上",
+    "tier": 3,
+    "active_limit": 5000,
+    "_active_limit说明": "活跃层上限。超过就把最旧的移到 cold/（移走不是删除，仍可搜）",
+    "inject_notes": 5,
+    "inject_related": 3,
+    "_inject_related说明": "其中几条按「当前主线/待办」的相关度挑，剩下的用最新的补满。设 0 = 退回纯最新",
+    "inject_snippet_chars": 120,
+    "_inject_snippet_chars说明": "「相关」那几条附带多少字的正文摘要（优先取「## 结论」段）。设 0 = 只给标题",
+    "inject_chars": 300,
+    "_inject_chars说明": "单个段落的截断字数。用在 current.md 的『主线』『卡在哪』和 profile 的『说话方式』『脾气』上，每段最多这么多字。注意：笔记的正文摘要走 inject_snippet_chars（120），不是这个数",
+    "_inject说明": "简报的注入预算是两件事：条数由 inject_notes 定，每段长度由 inject_chars 定，笔记摘要另由 inject_snippet_chars 定。这是唯一不该往上调的数——AI 一次只能读这么多"
+  },
+
+  "shelf_life": {
+    "_说明": "保质期（天）。0=永久。-1=不设保质期概念。只用于标注『逾期』，不删除、不降权",
+    "事实": 0,
+    "经历": 365,
+    "决策": 0,
+    "经验": 365,
+    "待办": 30,
+    "摘要": 180
+  },
+
+  "security": {
+    "max_body_chars": 4000,
+    "max_title_chars": 60,
+    "block_instruction": true,
+    "_block_instruction说明": "写入时拒绝『你以后必须…』这类指令句。这是防投毒的第一道门",
+    "block_secrets": true,
+    "warn_paths": true
+  },
+
+  "archive": {
+    "_说明": "聊天原文归档。挂在 brief 前面自动跑，因为开工会 100% 发生、结束不一定（被强杀/崩溃/窗口一直开着）",
+    "auto_on_brief": true,
+    "min_interval_hours": 6,
+    "_min_interval_hours说明": "两次自动归档最小间隔。archive 本身幂等，这只是避免每次开简报都扫一遍大文件"
+  },
+
+  "consolidate": {
+    "_说明": "摘要层。同主题积到 group_min 条就该压成一条摘要。机器只负责挑，摘要文字由 AI 写",
+    "group_min": 5,
+    "group_max_chars": 3000
+  }
+}
